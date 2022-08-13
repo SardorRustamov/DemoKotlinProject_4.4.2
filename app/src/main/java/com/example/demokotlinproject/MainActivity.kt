@@ -13,15 +13,15 @@ class MainActivity : AppCompatActivity() {
         initViews();
     }
     fun initViews(){
-        val b_open_details = findViewById<Button>(R.id.b_detail)
-        b_open_details.setOnClickListener { openDetailActivity() }
-
+        var b_open_details = findViewById<Button>(R.id.b_detail)
+        b_open_details.setOnClickListener {
+            var user = User("Anvar", 15)
+            openDetailActivity(user)
+        }
     }
-
-    private fun openDetailActivity() {
+    private fun openDetailActivity(user: User) {
         val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra("name", "Sardor")
-        intent.putExtra("age", "22")
+        intent.putExtra("user", user)
         startActivity(intent)
     }
 }
